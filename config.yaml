@@ -1,21 +1,41 @@
+description:
+  This is another longer description that also spans
+  multiple lines, but the newlines will be turned 
+  into spaces in the output.
+
+remote (dict):
+  logger_remote_handler_level (str): Minimum severity level for messages to be logged remotely.
+  logger_remote_logging_url (str): URL of the remote logging endpoint.
+  async (bool): Whether logging should be asynchronous.
+Instructions:
+    1. Adjust the general logger settings under 'logger' if necessary.
+    2. To enable/disable file logging, adjust settings under 'file'.
+    3. To enable/disable console logging, adjust settings under 'console'.
+    4. To enable/disable remote logging, provide/omit the 'logger_remote_logging_url' under 'remote'.
+    5. Ensure that any URLs provided are accessible and correct.
+    6. The 'async' option can be set to true or false based on whether you want asynchronous logging. Note that for high-volume logs, enabling async can improve performance.
+
 logger:
   logger_name: ProjectName
   logger_format: '%(asctime)s - %(levelname)s - %(name)s - %(message)s'
   logger_datefmt: '%Y-%m-%d %H:%M:%S'
   logger_version: "1.0.0"
 
+  # File-based logging configurations.
   file:
     logger_file_name: 'app_log.json'
-    logger_file_handler_level: DEBUG
+    logger_file_handler_level: DEBUG   #DEBUG, INFO, WARNING, ERROR, CRITICAL
     logger_max_bytes: 10485760
     logger_backup_count: 3
     async: false
 
+  # Console logging configurations.
   console:
-    logger_console_handler_level: WARNING
+    logger_console_handler_level: DEBUG   #DEBUG, INFO, WARNING, ERROR, CRITICAL
     async: false
-
+    
+  # Remote logging configurations.
   remote:
-    logger_remote_handler_level: NONE
+    logger_remote_handler_level: NONE   #NONE (to disable) DEBUG, INFO, WARNING, ERROR, CRITICAL
     logger_remote_logging_url: "http://your_remote_logging_server_endpoint"
     async: false
