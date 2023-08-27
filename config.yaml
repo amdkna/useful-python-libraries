@@ -1,0 +1,21 @@
+logger:
+  logger_name: ProjectName
+  logger_format: '%(asctime)s - %(levelname)s - %(name)s - %(message)s'
+  logger_datefmt: '%Y-%m-%d %H:%M:%S'
+  logger_version: "1.0.0"
+
+  file:
+    logger_file_name: 'app_log.json'
+    logger_file_handler_level: DEBUG
+    logger_max_bytes: 10485760
+    logger_backup_count: 3
+    async: false
+
+  console:
+    logger_console_handler_level: WARNING
+    async: false
+
+  remote:
+    logger_remote_handler_level: NONE
+    logger_remote_logging_url: "http://your_remote_logging_server_endpoint"
+    async: false

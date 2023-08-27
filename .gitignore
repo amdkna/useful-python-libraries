@@ -1,0 +1,5 @@
+*.html
+*.log
+/__pycache__
+*.json
+
