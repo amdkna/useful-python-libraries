@@ -3,3 +3,6 @@
 /__pycache__
 *.json
 /BackupFiles
+test_*
+
+  
